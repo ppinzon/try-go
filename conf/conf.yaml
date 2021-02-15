@@ -1,0 +1,2 @@
+forbidden_passwords: ["pass", "password", "admin", "qwerty", "123"]
+#IMPLEMENT PART 3
