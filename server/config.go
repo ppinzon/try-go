@@ -1,5 +1,6 @@
 package server
 
+// Config bla
 type Config struct {
 	Port          int    // Port at which server runs
 	User          string // User for basic auth
