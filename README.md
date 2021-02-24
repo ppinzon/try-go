@@ -16,11 +16,11 @@
    
 Choose response status by yourself (e.g. StatusCreated, StatusOK, StatusDeleted etc.)
 
-2. Store data in memory
+2. Store data in memory :heavy_check_mark:
 3. Concurrently safe (sync package)
-4. JSON format on endpoints (json package)
-5. Use echo framework (or any other of your choice)
-6. Test endpoints with POSTMAN
+4. JSON format on endpoints (json package) :heavy_check_mark:
+5. Use echo framework (or any other of your choice) :heavy_check_mark:
+6. Test endpoints with POSTMAN :heavy_check_mark:
 
 Resources:
 
@@ -34,7 +34,7 @@ https://www.postman.com/
 
 ###### Description: implement a basic middleware for the web server, write unit tests
 
-1. Centralised logging of incoming request / outgoing response
+1. Centralised logging of incoming request / outgoing response :heavy_check_mark:
 2. Require basic auth for all requests (use authorisation header).
 3. Write unit tests for storage
 4. Write unit tests for CRUD endpoints

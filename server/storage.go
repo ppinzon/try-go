@@ -1,8 +1,8 @@
 package server
 
 //UserMap bla
-var UserMap = make(map[int]*User)
-var NextUserID int = 1
+// var UserMap = make(map[int]*User)
+// var NextUserID int = 1
 
 // User bla
 type User struct {

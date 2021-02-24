@@ -1,7 +1,7 @@
 package server
 
 import (
-	"fmt"
+	// "fmt"
 	"net/http"
 	"strconv"
 
@@ -10,9 +10,9 @@ import (
 
 // HelloWorld bla
 func HelloWorld(c echo.Context) error {
-	for _, user := range UserMap {
-		fmt.Println(user.Name)
-	}
+	// for _, user := range UserMap {
+	// 	fmt.Println(user.Name)
+	// }
 	return c.String(http.StatusOK, "Hello, World!")
 }
 
@@ -24,35 +24,24 @@ func HelloWorld(c echo.Context) error {
 // }
 
 // CreateUser creates a brand new user
-func CreateUser(c echo.Context) error {
+func (s *Server) CreateUser(c echo.Context) error {
 	u := new(User)
 	if err := c.Bind(u); err != nil {
 		return err
 	}
-	u.ID = NextUserID
-	NextUserID++
-	UserMap[u.ID] = u
-	return c.JSON(http.StatusOK, u)
-}
 
-//CreateUserBetter try to use non global variables
-func (s Server) CreateUserBetter(c echo.Context) error {
-	u := new(User)
-	if err := c.Bind(u); err != nil {
-		return err
-	}
 	u.ID = s.NextUserID
 	s.NextUserID++
-	UserMap[u.ID] = u
+	s.UserMap[u.ID] = u
 	return c.JSON(http.StatusOK, u)
 }
 
 // GetUser displays a user
-func GetUser(c echo.Context) error {
+func (s *Server) GetUser(c echo.Context) error {
 	id := c.Param("id")
 	idint, _ := strconv.Atoi(id)
 
-	user, ok := UserMap[idint]
+	user, ok := s.UserMap[idint]
 	if ok {
 		return c.JSON(http.StatusOK, user)
 	}
@@ -60,13 +49,13 @@ func GetUser(c echo.Context) error {
 }
 
 // DeleteUser deletes users
-func DeleteUser(c echo.Context) error {
+func (s *Server) DeleteUser(c echo.Context) error {
 	id := c.Param("id")
 	idint, _ := strconv.Atoi(id)
 
-	user, ok := UserMap[idint]
+	user, ok := s.UserMap[idint]
 	if ok {
-		delete(UserMap, idint)
+		delete(s.UserMap, idint)
 		return c.JSON(http.StatusOK, user)
 	}
 	return c.String(http.StatusNotFound, "user not found")
