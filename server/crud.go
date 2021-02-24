@@ -35,6 +35,18 @@ func CreateUser(c echo.Context) error {
 	return c.JSON(http.StatusOK, u)
 }
 
+//CreateUserBetter try to use non global variables
+func (s Server) CreateUserBetter(c echo.Context) error {
+	u := new(User)
+	if err := c.Bind(u); err != nil {
+		return err
+	}
+	u.ID = s.NextUserID
+	s.NextUserID++
+	UserMap[u.ID] = u
+	return c.JSON(http.StatusOK, u)
+}
+
 // GetUser displays a user
 func GetUser(c echo.Context) error {
 	id := c.Param("id")
