@@ -35,7 +35,7 @@ https://www.postman.com/
 ###### Description: implement a basic middleware for the web server, write unit tests
 
 1. Centralised logging of incoming request / outgoing response :heavy_check_mark:
-2. Require basic auth for all requests (use authorisation header).
+2. Require basic auth for all requests (use authorisation header). :heavy_check_mark:
 3. Write unit tests for storage
 4. Write unit tests for CRUD endpoints
 5. Install and run golangci-lint (linter)
