@@ -5,12 +5,17 @@ package server
 // var NextUserID int = 1
 
 // User bla
-type User struct {
-	ID      int    `json:"id" xml:"id" form:"id" query:"id"` // Think about how server will generate unique IDs
-	Name    string `json:"name" xml:"name" form:"name" query:"name"`
-	Surname string `json:"surname" xml:"surname" form:"surname" query:"surname"`
-	Age     int    `json:"age" xml:"age" form:"age" query:"age"`
-}
+type (
+	User struct {
+		ID      int    `json:"id" xml:"id" form:"id" query:"id"` // Think about how server will generate unique IDs
+		Name    string `json:"name" xml:"name" form:"name" query:"name"`
+		Surname string `json:"surname" xml:"surname" form:"surname" query:"surname"`
+		Age     int    `json:"age" xml:"age" form:"age" query:"age"`
+	}
+	handler struct {
+		db map[int]*User
+	}
+)
 
 // Storage bla
 type Storage interface {

@@ -33,7 +33,7 @@ func (s *Server) CreateUser(c echo.Context) error {
 	u.ID = s.NextUserID
 	s.NextUserID++
 	s.UserMap[u.ID] = u
-	return c.JSON(http.StatusOK, u)
+	return c.JSON(http.StatusCreated, u)
 }
 
 // GetUser displays a user
