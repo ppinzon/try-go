@@ -37,7 +37,7 @@ https://www.postman.com/
 1. Centralised logging of incoming request / outgoing response :heavy_check_mark:
 2. Require basic auth for all requests (use authorisation header). :heavy_check_mark:
 3. Write unit tests for storage
-4. Write unit tests for CRUD endpoints
+4. Write unit tests for CRUD endpoints :heavy_check_mark:
 5. Install and run golangci-lint (linter)
 
 OPTIONAL:
